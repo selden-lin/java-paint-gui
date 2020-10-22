@@ -12,7 +12,6 @@ public class PaintCanvas extends JPanel{
 		this.setSize(this.width,this.height);
 		this.setPreferredSize(new Dimension(this.width, this.height));
 		this.setBackground(Color.white);
-
 	}
 	
 	public void paintComponent(Graphics g) {

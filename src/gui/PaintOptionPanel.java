@@ -18,6 +18,7 @@ public class PaintOptionPanel extends JPanel {
 		this.lineBtn.addActionListener(new LineBtnHandler());
 		
 		this.freeLineBtn = new ShapeButton("freeLine");
+		this.freeLineBtn.addActionListener(new FreeLineHandler());
 		
 		this.setBorder(BorderFactory.createLineBorder(Color.black));
 		this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));

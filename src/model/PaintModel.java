@@ -24,6 +24,9 @@ public class PaintModel {
 		case circle:
 			this.shapeMaker = new CircleFactory();
 			break;
+		case freeLine:
+			this.shapeMaker = new FreeLineFactory();
+			break;
 		}
 	}
 	

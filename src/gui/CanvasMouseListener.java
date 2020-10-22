@@ -22,7 +22,6 @@ public class CanvasMouseListener implements MouseListener, MouseMotionListener {
 	
 	@Override
 	public void mousePressed(MouseEvent e) {
-		
 		this.controller.setStartPoint(e.getX(), e.getY());
 	}
 

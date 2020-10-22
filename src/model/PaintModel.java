@@ -1,10 +1,12 @@
 package model;
 
+import java.awt.Color;
 import java.util.*;
 
 import javax.swing.ButtonModel;
 
 import model.ShapeType;
+import model.decorators.ColorDecorator;
 import model.factories.*;
 import model.factories.*;
 public class PaintModel {
@@ -13,6 +15,10 @@ public class PaintModel {
 	private ShapeFactory shapeMaker = new LineFactory();
 	private HashMap<ShapeType, ButtonModel> btnModels = new HashMap<ShapeType, ButtonModel>();
 	
+	// shape properties
+	private Color color = Color.black;
+	private boolean isFilled = false;
+	private int thickness = 1;
 	public void setShape(ShapeType shape) {
 		switch(shape) {
 		case line:
@@ -35,11 +41,17 @@ public class PaintModel {
 	}
 	
 	public Shape setDragPoint(Point end) {
-		return this.shapeMaker.setEnd(end);
+		Shape s = this.shapeMaker.setEnd(end);
+		s = new ColorDecorator(s, this.color);
+		
+		return s;
 	}
 	
 	public void setEndPoint(Point end) {
-		this.shapeQueue.add(this.shapeMaker.setEnd(end));
+		Shape s = this.shapeMaker.setEnd(end);
+		s = new ColorDecorator(s, this.color);
+		
+		this.shapeQueue.add(s);
 		this.shapeMaker.reset();
 	}
 	
@@ -60,5 +72,12 @@ public class PaintModel {
 	
 	public HashMap<ShapeType, ButtonModel> getBtnModels() {
 		return this.btnModels;
+	}
+	
+	public void setColor(Color color) {
+		this.color = color;
+	}
+	public Color getColor() {
+		return this.color;
 	}
 }

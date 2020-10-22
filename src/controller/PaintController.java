@@ -1,5 +1,6 @@
 package controller;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -59,5 +60,12 @@ public class PaintController {
 	
 	public HashMap<ShapeType, ButtonModel> getBtnModels() {
 		return this.paintModel.getBtnModels();
+	}
+	
+	public void setColor(Color c) {
+		this.paintModel.setColor(c);
+	}
+	public Color getColor() {
+		return this.paintModel.getColor();
 	}
 }

@@ -13,10 +13,28 @@ public class Circle implements Shape{
 		this.center = start;
 		this.radius = (int)Math.sqrt(Math.pow(x1-x2, 2)+Math.pow(y1-y2, 2));
 	}
+	
+	public ShapeType getShapeType() {
+		return ShapeType.circle;
+	}
+
 	@Override
 	public void draw(Graphics g) {
 		g.drawOval(this.center.getX()-this.radius, this.center.getY()-this.radius, this.radius*2, this.radius*2);
-		
+	}
+	
+	public int getRadius() {
+		return this.radius;
+	}
+	
+	public Point getCenter() {
+		return this.center;
+	}
+
+	@Override
+	public Shape getBaseShape() {
+		// TODO Auto-generated method stub
+		return this;
 	}
 
 }

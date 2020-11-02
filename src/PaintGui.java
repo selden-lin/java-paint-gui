@@ -10,10 +10,11 @@ public class PaintGui {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 800);
         
-        
+        PaintController ctrl = PaintController.getInstance();
         PaintMenu menu = new PaintMenu();
         PaintOptionPanel optionPanel = new PaintOptionPanel();
         PaintCanvas canvas = new PaintCanvas();
+        ctrl.setCanvas(canvas);
         canvas.setDoubleBuffered(true);
         CanvasMouseListener canvasMouse = new CanvasMouseListener(canvas);
         

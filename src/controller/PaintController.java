@@ -1,11 +1,13 @@
 package controller;
 
+import java.awt.Canvas;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.ButtonModel;
 
+import gui.PaintCanvas;
 import model.*;
 
 public class PaintController {
@@ -34,6 +36,15 @@ public class PaintController {
 		this.currShape = this.paintModel.setDragPoint(new Point(x,y));
 	}
 	
+	
+	public void clearScreen() {
+		this.paintModel.setCanvasBackground(Color.white);
+	}
+	
+	public void setCanvas(PaintCanvas canvas) {
+		this.paintModel.setCanvas(canvas);
+	}
+	
 	public void setEndPoint (int x, int y) {
 		this.endPoint = new Point(x,y);
 		this.paintModel.setEndPoint(this.endPoint);
@@ -42,6 +53,10 @@ public class PaintController {
 	
 	public void setShape(ShapeType shape) {
 		this.paintModel.setShape(shape);
+	}
+	
+	public void toggleFill() {
+		this.paintModel.toggleFill();
 	}
 	
 	public Shape getCurrShape() {

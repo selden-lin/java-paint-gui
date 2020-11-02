@@ -9,6 +9,12 @@ public class Rectangle implements Shape{
 		this.start = start;
 		this.end = end;
 	}
+
+	
+	public ShapeType getShapeType() {
+		return ShapeType.rectangle;
+	}
+	
 	@Override
 	public void draw(Graphics g) {
 		int x1 = start.getX();
@@ -28,6 +34,21 @@ public class Rectangle implements Shape{
 			y2 = temp;
 		}
 		g.drawRect(x1,  y1, width, height);
+	}
+	
+	
+	public Point getStartPoint() {
+		return this.start;
+	}
+	public Point getEndPoint() {
+		return this.end;
+	}
+
+	
+	@Override
+	public Shape getBaseShape() {
+		// TODO Auto-generated method stub
+		return this;
 	}
 
 }

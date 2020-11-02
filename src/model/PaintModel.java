@@ -1,19 +1,24 @@
 package model;
 
+import java.awt.Canvas;
 import java.awt.Color;
 import java.util.*;
 
 import javax.swing.ButtonModel;
 
+import gui.PaintCanvas;
 import model.ShapeType;
 import model.decorators.ColorDecorator;
+import model.decorators.FillDecorator;
 import model.factories.*;
 import model.factories.*;
 public class PaintModel {
-	private ShapeType shape = ShapeType.line;
+	private ShapeType shape = ShapeType.rectangle;
 	private ArrayList<Shape> shapeQueue = new ArrayList<Shape>();
-	private ShapeFactory shapeMaker = new LineFactory();
+	private ShapeFactory shapeMaker = new RectangleFactory();
 	private HashMap<ShapeType, ButtonModel> btnModels = new HashMap<ShapeType, ButtonModel>();
+	private PaintCanvas canvas;
+	private boolean isFill = false;
 	
 	// shape properties
 	private Color color = Color.black;
@@ -42,6 +47,9 @@ public class PaintModel {
 	
 	public Shape setDragPoint(Point end) {
 		Shape s = this.shapeMaker.setEnd(end);
+		if (this.isFill) {
+			s = new FillDecorator(s);
+		}
 		s = new ColorDecorator(s, this.color);
 		
 		return s;
@@ -49,6 +57,9 @@ public class PaintModel {
 	
 	public void setEndPoint(Point end) {
 		Shape s = this.shapeMaker.setEnd(end);
+		if (this.isFill) {
+			s = new FillDecorator(s);
+		}
 		s = new ColorDecorator(s, this.color);
 		
 		this.shapeQueue.add(s);
@@ -79,5 +90,21 @@ public class PaintModel {
 	}
 	public Color getColor() {
 		return this.color;
+	}
+	
+	public void toggleFill() {
+		this.isFill = !this.isFill;
+	}
+	
+	public void setCanvas(PaintCanvas canvas2) {
+		this.canvas = canvas2;
+	}
+	
+	public void setCanvasBackground(Color color) {
+		Shape r = new Rectangle(new Point(0,0), new Point(this.canvas.getWidth(), this.canvas.getHeight()));
+		r = new FillDecorator(r);
+		r = new ColorDecorator(r, color);
+		this.shapeQueue.add(r);
+		this.canvas.repaint();
 	}
 }

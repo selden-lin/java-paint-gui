@@ -10,6 +10,10 @@ public class FreeLine implements Shape{
 		this.points.add(end);
 	}
 	
+	public ShapeType getShapeType() {
+		return ShapeType.freeLine;
+	}
+	
 	public void addPoint(Point p) {
 		this.points.add(p);
 	}
@@ -25,4 +29,9 @@ public class FreeLine implements Shape{
 		}
 	}
 
+	@Override
+	public Shape getBaseShape() {
+		// TODO Auto-generated method stub
+		return this;
+	}
 }

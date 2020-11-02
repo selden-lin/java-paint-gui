@@ -9,6 +9,10 @@ public class Line implements Shape{
 		this.end = end;
 	}
 	
+	public ShapeType getShapeType() {
+		return ShapeType.line;
+	}
+	
 	@Override
 	public void draw(Graphics g) {
 		int x1 = start.getX();
@@ -22,4 +26,11 @@ public class Line implements Shape{
 	public String toString() {
 		return "Line: ("+this.start.toString()+", "+this.end.toString();
 	}
+
+	@Override
+	public Shape getBaseShape() {
+		// TODO Auto-generated method stub
+		return this;
+	}
+
 }

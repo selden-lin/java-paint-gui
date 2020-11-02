@@ -4,18 +4,32 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 import model.Shape;
+import model.ShapeType;
 
 public class ColorDecorator implements Shape{
-	Shape prev_shape;
-	Color c;
+	private Shape prev_shape, baseShape;
+	private Color c;
+	private ShapeType type;
 	public ColorDecorator(Shape s, Color c) {
 		this.prev_shape = s;
 		this.c = c;
+		this.type = s.getShapeType();
+		this.baseShape = s.getBaseShape();
 	}
+	
+	public Shape getBaseShape() {
+		return this.baseShape;
+	}
+	
 	@Override
 	public void draw(Graphics g) {
 		g.setColor(c);
 		prev_shape.draw(g);
 	}
 
+	@Override
+	public ShapeType getShapeType() {
+		return this.type;
+	}
+	
 }

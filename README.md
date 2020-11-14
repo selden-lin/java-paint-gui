@@ -12,7 +12,7 @@
 	- will need java to run this
 
 ## High level explanation
-![alt diagram](https://github.com/selden-lin/java-paint-gui/uml_diagram.jpg)
+![alt diagram](https://raw.githubusercontent.com/selden-lin/java-paint-gui/main/uml_diagram.jpg)
 - Project follows MVC architecture
 - Input is read through the PaintOptionPanel and the canvas mouse listener
 - Controller holds instance of paintModel which holds canvas paint state

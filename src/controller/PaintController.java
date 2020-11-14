@@ -93,4 +93,8 @@ public class PaintController {
 	public void redo() {
 		this.paintModel.redo();
 	}
+	
+	public ArrayList<String> canvasToString() {
+		return this.paintModel.canvasToString();
+	}
 }

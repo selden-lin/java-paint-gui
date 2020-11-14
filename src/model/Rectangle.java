@@ -44,6 +44,9 @@ public class Rectangle implements Shape{
 		return this.end;
 	}
 
+	public String toString() {
+		return "(rectangle,"+this.start.toString()+","+this.end.toString()+")";
+	}
 	
 	@Override
 	public Shape getBaseShape() {

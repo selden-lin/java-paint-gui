@@ -21,6 +21,11 @@ public class ColorDecorator implements Shape{
 		return this.baseShape;
 	}
 	
+	public String toString() {
+		String s = "(color,"+this.c.toString()+","+this.prev_shape.toString()+")";
+		return s;
+	}
+	
 	@Override
 	public void draw(Graphics g) {
 		g.setColor(c);

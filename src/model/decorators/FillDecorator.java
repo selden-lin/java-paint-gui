@@ -54,6 +54,11 @@ public class FillDecorator implements Shape{
 		// TODO Auto-generated method stub
 		return this.shape.getShapeType();
 	}
+	
+	public String toString() {
+		String s = "(fill,"+this.shape.toString()+")";
+		return s;
+	}
 
 	@Override
 	public Shape getBaseShape() {

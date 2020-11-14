@@ -70,7 +70,7 @@ public class PaintModel {
 	
 	public ArrayList<Shape> getShapes() {
 		return this.shapeQueue;
-	}
+	} 
 	
 	public void disableShapeBtn(ShapeType shape, ButtonModel model) {
 		if (!this.btnModels.containsKey(shape)) {
@@ -108,6 +108,14 @@ public class PaintModel {
 		r = new ColorDecorator(r, color);
 		this.shapeQueue.add(r);
 		this.canvas.repaint();
+	}
+	
+	public ArrayList<String> canvasToString() {
+		ArrayList<String> canvasList = new ArrayList<String>();
+		for (int x=0;x<this.shapeQueue.size();x++) {
+			canvasList.add(this.shapeQueue.get(x).toString());
+		}
+		return canvasList;
 	}
 	
 	public void undo() {

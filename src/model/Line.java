@@ -24,7 +24,7 @@ public class Line implements Shape{
 	}
 	
 	public String toString() {
-		return "Line: ("+this.start.toString()+", "+this.end.toString();
+		return "(line,"+this.start.toString()+", "+this.end.toString()+")";
 	}
 
 	@Override

@@ -17,6 +17,10 @@ public class Circle implements Shape{
 	public ShapeType getShapeType() {
 		return ShapeType.circle;
 	}
+	
+	public String toString() {
+		return "(circle,"+this.center.toString()+","+Integer.toString(this.radius)+")";
+	}
 
 	@Override
 	public void draw(Graphics g) {

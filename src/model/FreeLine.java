@@ -27,6 +27,15 @@ public class FreeLine implements Shape{
 			int y2 = points.get(x).getY();
 			g.drawLine(x1, y1, x2, y2);
 		}
+	} 
+	
+	public String toString() {
+		String s = "(freeLine";
+		for (int x=0;x<points.size();x++) {
+			s = s+","+points.get(x).toString();
+		}
+		s = s+")";
+		return s;
 	}
 
 	@Override

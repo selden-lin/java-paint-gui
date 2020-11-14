@@ -15,6 +15,7 @@ import model.factories.*;
 public class PaintModel {
 	private ShapeType shape = ShapeType.rectangle;
 	private ArrayList<Shape> shapeQueue = new ArrayList<Shape>();
+	private ArrayList<Shape> undoQueue = new ArrayList<Shape>();
 	private ShapeFactory shapeMaker = new RectangleFactory();
 	private HashMap<ShapeType, ButtonModel> btnModels = new HashMap<ShapeType, ButtonModel>();
 	private PaintCanvas canvas;
@@ -64,6 +65,7 @@ public class PaintModel {
 		
 		this.shapeQueue.add(s);
 		this.shapeMaker.reset();
+		this.undoQueue.clear();
 	}
 	
 	public ArrayList<Shape> getShapes() {
@@ -106,5 +108,21 @@ public class PaintModel {
 		r = new ColorDecorator(r, color);
 		this.shapeQueue.add(r);
 		this.canvas.repaint();
+	}
+	
+	public void undo() {
+		if (this.shapeQueue.size() > 0) {			
+			Shape old = this.shapeQueue.remove(this.shapeQueue.size()-1);
+			this.undoQueue.add(old);
+			this.canvas.repaint();
+		}
+	}
+	
+	public void redo() {
+		if(this.undoQueue.size() > 0) {			
+			Shape redo = this.undoQueue.remove(this.undoQueue.size()-1);
+			this.shapeQueue.add(redo);
+			this.canvas.repaint();
+		}
 	}
 }

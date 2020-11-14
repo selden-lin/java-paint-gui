@@ -85,4 +85,12 @@ public class PaintController {
 	public Color getColor() {
 		return this.paintModel.getColor();
 	}
+	
+	public void undo() {
+		this.paintModel.undo();
+	}
+	
+	public void redo() {
+		this.paintModel.redo();
+	}
 }

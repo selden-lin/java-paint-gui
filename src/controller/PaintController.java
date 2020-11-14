@@ -38,7 +38,9 @@ public class PaintController {
 	
 	
 	public void clearScreen() {
+		Color oldColor = this.paintModel.getColor();
 		this.paintModel.setCanvasBackground(Color.white);
+		this.paintModel.setColor(oldColor);
 	}
 	
 	public void setCanvas(PaintCanvas canvas) {

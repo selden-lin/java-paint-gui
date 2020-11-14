@@ -22,7 +22,7 @@ public class PaintGui {
         frame.getContentPane().add(BorderLayout.NORTH, menu);
         frame.getContentPane().add(BorderLayout.EAST, canvas);
         
-        frame.setSize(900, 800);
+        frame.setSize(1000, 800);
         frame.setVisible(true);
 	}
 }

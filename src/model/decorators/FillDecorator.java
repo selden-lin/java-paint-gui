@@ -7,15 +7,15 @@ import java.awt.Point;
 import model.*;
 
 public class FillDecorator implements Shape{
-	Shape shape;
+	Shape prevShape;
 	public FillDecorator(Shape s) {
-		this.shape = s;
+		this.prevShape = s;
 	}
 	
 	@Override
 	public void draw(Graphics g) {
 		// TODO Auto-generated method stub
-		switch(this.shape.getShapeType()) {
+		switch(this.prevShape.getShapeType()) {
 		case circle:
 			Circle c = (Circle) this.getBaseShape();
 			int r = c.getRadius();
@@ -45,25 +45,25 @@ public class FillDecorator implements Shape{
 			g.fillRect(x1,  y1, width, height);
 			break;
 		default:
-			this.shape.draw(g);
+			this.prevShape.draw(g);
 		}
 	}
 
 	@Override
 	public ShapeType getShapeType() {
 		// TODO Auto-generated method stub
-		return this.shape.getShapeType();
+		return this.prevShape.getShapeType();
 	}
 	
 	public String toString() {
-		String s = "(fill,"+this.shape.toString()+")";
+		String s = "(fill,"+this.prevShape.toString()+")";
 		return s;
 	}
 
 	@Override
 	public Shape getBaseShape() {
 		// TODO Auto-generated method stub
-		return this.shape.getBaseShape();
+		return this.prevShape.getBaseShape();
 	}
 
 }

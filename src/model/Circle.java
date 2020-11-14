@@ -14,6 +14,11 @@ public class Circle implements Shape{
 		this.radius = (int)Math.sqrt(Math.pow(x1-x2, 2)+Math.pow(y1-y2, 2));
 	}
 	
+	public Circle(Point center, int radius) {
+		this.center = center;
+		this.radius = radius;
+	}
+	
 	public ShapeType getShapeType() {
 		return ShapeType.circle;
 	}

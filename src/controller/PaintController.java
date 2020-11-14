@@ -97,4 +97,8 @@ public class PaintController {
 	public ArrayList<String> canvasToString() {
 		return this.paintModel.canvasToString();
 	}
+	
+	public void readShapes(ArrayList<String> shapes) throws Exception {
+		this.paintModel.readShapes(shapes);
+	}
 }

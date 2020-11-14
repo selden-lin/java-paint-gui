@@ -13,8 +13,10 @@ public class ColorDecorator implements Shape{
 	public ColorDecorator(Shape s, Color c) {
 		this.prev_shape = s;
 		this.c = c;
-		this.type = s.getShapeType();
-		this.baseShape = s.getBaseShape();
+		if (s != null) {
+			this.type = s.getShapeType();
+			this.baseShape = s.getBaseShape();
+		}
 	}
 	
 	public Shape getBaseShape() {
@@ -22,7 +24,7 @@ public class ColorDecorator implements Shape{
 	}
 	
 	public String toString() {
-		String s = "(color,"+this.c.toString()+","+this.prev_shape.toString()+")";
+		String s = "(color,"+String.valueOf(this.c.getRGB())+","+this.prev_shape.toString()+")";
 		return s;
 	}
 	

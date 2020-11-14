@@ -10,6 +10,10 @@ public class FreeLine implements Shape{
 		this.points.add(end);
 	}
 	
+	public FreeLine() {
+		
+	}
+	
 	public ShapeType getShapeType() {
 		return ShapeType.freeLine;
 	}
